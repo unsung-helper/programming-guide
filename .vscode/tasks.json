@@ -1,0 +1,51 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Export SDK (zip)",
+            "type": "shell",
+            "command": "bash build.sh export",
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "statusbar": { "label": "$(package) Export SDK" }
+            },
+            "group": { "kind": "build", "isDefault": true },
+            "problemMatcher": ["$gcc"],
+            "detail": "Build both libraries (Release) and package them into unsung-configurator.zip for upload."
+        },
+        {
+            "label": "Build all (Release)",
+            "type": "shell",
+            "command": "bash build.sh all",
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "statusbar": { "label": "$(tools) Build all" }
+            },
+            "group": "build",
+            "problemMatcher": ["$gcc"],
+            "detail": "Configure + build the native and WebAssembly engineConfigurator libraries (CMAKE_BUILD_TYPE=Release)."
+        },
+        {
+            "label": "Build native (Release)",
+            "type": "shell",
+            "command": "bash build.sh native",
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "statusbar": { "label": "$(gear) native" }
+            },
+            "group": "build",
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build WebAssembly (Release)",
+            "type": "shell",
+            "command": "bash build.sh wasm",
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "statusbar": { "label": "$(circuit-board) wasm" }
+            },
+            "group": "build",
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}

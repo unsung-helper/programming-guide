@@ -1,0 +1,21 @@
+{
+    "name": "Unsung SDK",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "twxs.cmake",
+                "ms-vscode.cpptools",
+                "actboy168.tasks"
+            ],
+            "settings": {
+                "task.problemMatchers.neverPrompt": { "shell": true },
+                "task.quickOpen.detail": true,
+                "tasks.statusbar.default.alignment": "left"
+            }
+        }
+    },
+    "postCreateCommand": "bash -c 'source /opt/emsdk/emsdk_env.sh && emcc --version'"
+}
